@@ -9,21 +9,15 @@
                     
                     <div class="row">
                        <div class="col-md-4">
-                            <painel titulo="Conteúdo 1" cor="purple">
-                                Teste de conteúdo
-                            </painel>
+                            <caixa quantidade="80" titulo="Artigos" url="#" cor="purple" icone="ion ion-ios-book"></caixa>
                        </div> 
 
                        <div class="col-md-4">
-                            <painel titulo="Conteúdo 2" cor="green">
-                                Teste de conteúdo
-                            </painel>
+                            <caixa quantidade="1480" titulo="Usuários" url="#" cor="green" icone="ion ion-person-stalker"></caixa>
                        </div> 
 
                        <div class="col-md-4">
-                            <painel titulo="Conteúdo 3" cor="dark">
-                                Teste de conteúdo
-                            </painel>
+                            <caixa quantidade="20" titulo="Autores" url="#" cor="red" icone="ion ion-edit"></caixa>
                        </div> 
                     </div>
                 </painel>

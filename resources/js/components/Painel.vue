@@ -31,8 +31,9 @@
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.50rem;
 }
-.dark {
-    background-color: #56687a !important;
+
+.red {
+    background-color: #de2911 !important;
     color: #e9ecef !important;
 }
 .purple {
