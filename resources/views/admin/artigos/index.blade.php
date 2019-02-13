@@ -3,33 +3,10 @@
 @section('content')
     <pagina tamanho="10">
       <painel titulo="Lista de Artigos">
-          <a class="btn btn-outline-primary" href="#">Criar</a>
-          <table class="table table-hover table-dark">
-          	<thead>
-          		<tr>
-          			<th>#</th>
-          			<th>Titulo</th>
-          			<th>Descrição</th>
-          			<th>Autor</th>
-          			<th>Data</th>
-          			<th>Ação</th>
-          		</tr>
-          	</thead>
-          	<tbody>
-          		<tr>
-          			<td>1</td>
-          			<td>Titulo ...</td>
-          			<td>Descrição</td>
-          			<td>Nome do Autor</td>
-          			<td>Data ....</td>
-          			<td>
-          				<a class="btn btn-outline-primary" href="">Editar</a>
-          				<a class="btn btn-outline-danger" href="">Excluir</a>
-          				<a class="btn btn-outline-light" href="">Ver</a>
-          			</td>
-          		</tr>
-          	</tbody>
-          </table>
+        <tabela-lista 
+        	v-bind:titulos="['#', 'titulo', 'Descrição', 'Autor', 'Data']"
+        	v-bind:itens="[[1, 'PHP OO', 'Curso de PHP Orientado a Objetos', 'Pedro Vicente', '13/02/2019'], [2, 'VUE js', 'Curso de Vue Js', 'Pedro Vicente', '13/02/2019']]"		
+        ></tabela-lista>
       </painel>
     </pagina>
 @endsection
