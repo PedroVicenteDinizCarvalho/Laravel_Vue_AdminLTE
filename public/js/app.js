@@ -1925,20 +1925,31 @@ __webpack_require__.r(__webpack_exports__);
   props: ['titulos', 'itens', 'ordem', 'ordemCol', 'criar', 'detalhe', 'editar', 'deletar', 'token'],
   data: function data() {
     return {
-      buscar: ''
+      buscar: '',
+      ordemAux: this.ordem || "asc",
+      ordemAuxCol: this.ordemCol || 0
     };
   },
   methods: {
     executaForm: function executaForm(index) {
       document.getElementById('id').submit();
+    },
+    ordenaColuna: function ordenaColuna(coluna) {
+      this.ordemAuxCol = coluna;
+
+      if (this.ordemAux == "asc") {
+        this.ordemAux = "desc";
+      } else {
+        this.ordemAux = "asc";
+      }
     }
   },
   computed: {
     lista: function lista() {
       var _this = this;
 
-      var ordem = this.ordem || "asc";
-      var ordemCol = this.ordemCol || 0;
+      var ordem = this.ordemAux;
+      var ordemCol = this.ordemAuxCol;
       ordem = ordem.toLowerCase();
       ordemCol = parseInt(ordemCol);
 
@@ -37727,8 +37738,19 @@ var render = function() {
         _c(
           "tr",
           [
-            _vm._l(_vm.titulos, function(titulo) {
-              return _c("th", [_vm._v(_vm._s(titulo))])
+            _vm._l(_vm.titulos, function(titulo, index) {
+              return _c(
+                "th",
+                {
+                  staticStyle: { cursor: "pointer" },
+                  on: {
+                    click: function($event) {
+                      return _vm.ordenaColuna(index)
+                    }
+                  }
+                },
+                [_vm._v(_vm._s(titulo))]
+              )
             }),
             _vm._v(" "),
             _vm.detalhe || _vm.editar || _vm.deletar

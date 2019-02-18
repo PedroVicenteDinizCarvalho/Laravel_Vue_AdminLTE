@@ -20,7 +20,7 @@
           <table class="table table-hover table-dark">
           	<thead>
           		<tr>
-          			<th v-for="titulo in titulos">{{ titulo }}</th>
+          			<th style="cursor: pointer" v-on:click="ordenaColuna(index)" v-for="(titulo, index) in titulos">{{ titulo }}</th>
           			<th v-if="detalhe || editar || deletar">Ação</th>
           		</tr>
           	</thead>
@@ -61,6 +61,8 @@
           data: function(){
                return {
                     buscar: '',
+                    ordemAux: this.ordem || "asc",
+                    ordemAuxCol: this.ordemCol || 0,
                }
           },
 
@@ -68,13 +70,22 @@
                executaForm: function(index){
                     document.getElementById('id').submit();
                },
+
+               ordenaColuna: function(coluna){
+                    this.ordemAuxCol = coluna;
+                    if(this.ordemAux == "asc"){
+                         this.ordemAux = "desc";
+                    }else{
+                         this.ordemAux = "asc";
+                    }
+               },
           },
           
           computed:{
                lista:function(){
      
-                    let ordem = this.ordem || "asc";
-                    let ordemCol = this.ordemCol || 0;
+                    let ordem = this.ordemAux;
+                    let ordemCol = this.ordemAuxCol;
                     ordem = ordem.toLowerCase();
                     ordemCol = parseInt(ordemCol);
 
