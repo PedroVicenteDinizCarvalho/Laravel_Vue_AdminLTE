@@ -1922,7 +1922,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token'],
+  props: ['titulos', 'itens', 'ordem', 'ordemCol', 'criar', 'detalhe', 'editar', 'deletar', 'token'],
   data: function data() {
     return {
       buscar: ''
@@ -1936,6 +1936,37 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     lista: function lista() {
       var _this = this;
+
+      var ordem = this.ordem || "asc";
+      var ordemCol = this.ordemCol || 0;
+      ordem = ordem.toLowerCase();
+      ordemCol = parseInt(ordemCol);
+
+      if (ordem == "asc") {
+        this.itens.sort(function (a, b) {
+          if (a[ordemCol] > b[ordemCol]) {
+            return 1;
+          }
+
+          if (a[ordemCol] < b[ordemCol]) {
+            return -1;
+          }
+
+          return 0;
+        });
+      } else {
+        this.itens.sort(function (a, b) {
+          if (a[ordemCol] < b[ordemCol]) {
+            return 1;
+          }
+
+          if (a[ordemCol] > b[ordemCol]) {
+            return -1;
+          }
+
+          return 0;
+        });
+      }
 
       return this.itens.filter(function (res) {
         for (var k = 0; k < res.length; k++) {
