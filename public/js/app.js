@@ -1998,8 +1998,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['titulos', 'itens', 'ordem', 'ordemCol', 'criar', 'detalhe', 'editar', 'deletar', 'token'],
+  props: ['titulos', 'itens', 'ordem', 'ordemCol', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'modal'],
   data: function data() {
     return {
       buscar: '',
@@ -37936,14 +37942,20 @@ var render = function() {
                 "li",
                 { staticClass: "nav-item" },
                 [
-                  _c("modal-link", {
-                    attrs: {
-                      tipo: "button",
-                      nome: "meuModalTeste",
-                      titulo: "criar",
-                      css: ""
-                    }
-                  })
+                  _vm.criar && !_vm.modal
+                    ? _c("a", { attrs: { href: _vm.criar } }, [_vm._v("Criar")])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.criar && _vm.modal
+                    ? _c("modal-link", {
+                        attrs: {
+                          tipo: "button",
+                          nome: "adicionar",
+                          titulo: "criar",
+                          css: ""
+                        }
+                      })
+                    : _vm._e()
                 ],
                 1
               )
@@ -38041,7 +38053,7 @@ var render = function() {
                               domProps: { value: _vm.token }
                             }),
                             _vm._v(" "),
-                            _vm.editar
+                            _vm.editar && !_vm.modal
                               ? _c(
                                   "a",
                                   {
@@ -38050,6 +38062,17 @@ var render = function() {
                                   },
                                   [_vm._v("Editar")]
                                 )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.editar && _vm.modal
+                              ? _c("modal-link", {
+                                  attrs: {
+                                    tipo: "button",
+                                    nome: "editar",
+                                    titulo: "Editar",
+                                    css: ""
+                                  }
+                                })
                               : _vm._e(),
                             _vm._v(" "),
                             _vm.detalhe
@@ -38076,46 +38099,77 @@ var render = function() {
                               },
                               [_vm._v("Deletar")]
                             )
-                          ]
+                          ],
+                          1
                         )
                       : _vm._e(),
                     _vm._v(" "),
                     !_vm.token
-                      ? _c("span", [
-                          _vm.editar
-                            ? _c("a", { attrs: { href: _vm.editar } }, [
-                                _vm._v("Editar")
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.detalhe
-                            ? _c("a", { attrs: { href: _vm.detalhe } }, [
-                                _vm._v("Detalhe")
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.deletar
-                            ? _c("a", { attrs: { href: _vm.deletar } }, [
-                                _vm._v("Deletar")
-                              ])
-                            : _vm._e()
-                        ])
+                      ? _c(
+                          "span",
+                          [
+                            _vm.editar && !_vm.modal
+                              ? _c("a", { attrs: { href: _vm.editar } }, [
+                                  _vm._v("Editar")
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.editar && _vm.modal
+                              ? _c("modal-link", {
+                                  attrs: {
+                                    tipo: "button",
+                                    nome: "editar",
+                                    titulo: "Editar",
+                                    css: ""
+                                  }
+                                })
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.detalhe
+                              ? _c("a", { attrs: { href: _vm.detalhe } }, [
+                                  _vm._v("Detalhe")
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.deletar
+                              ? _c("a", { attrs: { href: _vm.deletar } }, [
+                                  _vm._v("Deletar")
+                                ])
+                              : _vm._e()
+                          ],
+                          1
+                        )
                       : _vm._e(),
                     _vm._v(" "),
                     _vm.token && !_vm.deletar
-                      ? _c("span", [
-                          _vm.editar
-                            ? _c("a", { attrs: { href: _vm.editar } }, [
-                                _vm._v("Editar")
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.detalhe
-                            ? _c("a", { attrs: { href: _vm.detalhe } }, [
-                                _vm._v("Detalhe")
-                              ])
-                            : _vm._e()
-                        ])
+                      ? _c(
+                          "span",
+                          [
+                            _vm.editar && !_vm.modal
+                              ? _c("a", { attrs: { href: _vm.editar } }, [
+                                  _vm._v("Editar")
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.editar && _vm.modal
+                              ? _c("modal-link", {
+                                  attrs: {
+                                    tipo: "button",
+                                    nome: "editar",
+                                    titulo: "Editar",
+                                    css: ""
+                                  }
+                                })
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.detalhe
+                              ? _c("a", { attrs: { href: _vm.detalhe } }, [
+                                  _vm._v("Detalhe")
+                                ])
+                              : _vm._e()
+                          ],
+                          1
+                        )
                       : _vm._e()
                   ])
                 : _vm._e()

@@ -8,9 +8,8 @@
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                          <li class="nav-item">
-
-                              <modal-link tipo="button" nome="meuModalTeste" titulo="criar" css=""></modal-link>
-
+                              <a v-if="criar && !modal" v-bind:href="criar">Criar</a>
+                              <modal-link v-if="criar && modal" tipo="button" nome="adicionar" titulo="criar" css=""></modal-link>
                          </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
@@ -33,20 +32,27 @@
                               <form v-bind:id="index" v-if="deletar && token" v-bind:action="deletar" method="post">
                                    <input type="hidden" name="_method" value="DELETE">
                                    <input type="hidden" name="_token" v-bind:value="token">
-                                   <a v-if="editar" class="btn btn-outline-primary" v-bind:href="editar">Editar</a>
+
+                                   <a v-if="editar && !modal" class="btn btn-outline-primary" v-bind:href="editar">Editar</a>
+                                   <modal-link v-if="editar && modal" tipo="button" nome="editar" titulo="Editar" css=""></modal-link>
+
                                    <a v-if="detalhe" class="btn btn-outline-light" v-bind:href="detalhe">Detalhe</a>
 
                                    <a class="btn btn-outline-danger" href="#" v-on:click="executaForm(index)">Deletar</a>
                               </form>
 
                               <span v-if="!token">
-                                   <a v-if="editar" v-bind:href="editar">Editar</a>
+                                   <a v-if="editar && !modal" v-bind:href="editar">Editar</a>
+                                   <modal-link v-if="editar && modal" tipo="button" nome="editar" titulo="Editar" css=""></modal-link>
+
                                    <a v-if="detalhe" v-bind:href="detalhe">Detalhe</a>
                                    <a v-if="deletar" v-bind:href="deletar">Deletar</a>
                               </span>
 
                               <span v-if="token && !deletar">
-                                   <a v-if="editar" v-bind:href="editar">Editar</a>
+                                   <a v-if="editar && !modal" v-bind:href="editar">Editar</a>
+                                   <modal-link v-if="editar && modal" tipo="button" nome="editar" titulo="Editar" css=""></modal-link>
+
                                    <a v-if="detalhe" v-bind:href="detalhe">Detalhe</a>
                               </span>
           			</td>
@@ -58,7 +64,7 @@
 
 <script>
 	export default{
-		props:['titulos', 'itens', 'ordem', 'ordemCol', 'criar', 'detalhe', 'editar', 'deletar', 'token'],
+		props:['titulos', 'itens', 'ordem', 'ordemCol', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'modal'],
 
           data: function(){
                return {
