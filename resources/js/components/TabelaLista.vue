@@ -4,7 +4,7 @@
                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                </button>
-
+               <p>{{this.$store.state.itens}}</p>
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                          <li class="nav-item">
@@ -91,6 +91,7 @@
           
           computed:{
                lista:function(){
+                    this.$store.commit('setItens', {opa: "OK"});
      
                     let ordem = this.ordemAux;
                     let ordemCol = this.ordemAuxCol;
