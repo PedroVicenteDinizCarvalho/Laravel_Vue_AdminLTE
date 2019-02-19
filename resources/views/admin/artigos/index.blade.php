@@ -33,11 +33,13 @@
         <formulario css="" action="#" method="put" enctype="" token="">
           <div class="form-group">
             <label for="titulo">Titulo</label>
-            <input type="text" class="form-control" id="titulo" placeholder="titulo do artigo" name="titulo">
+            <input type="text" class="form-control" id="titulo" placeholder="titulo do artigo" name="titulo" 
+              v-model="$store.state.item.titulo">
           </div>
           <div class="form-group">
             <label for="decricao">Descrição</label>
-            <input type="text" class="form-control" id="descricao" placeholder="descrição do artigos" name="descricao">
+            <input type="text" class="form-control" id="descricao" placeholder="descrição do artigos" name="descricao"
+              v-model="$store.state.item.descricao">
           </div>
           <button type="button" class="btn btn-primary">Atualizar</button>
         </formulario>

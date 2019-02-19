@@ -4,7 +4,6 @@
                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                </button>
-               <p>{{this.$store.state.itens}}</p>
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                          <li class="nav-item">
@@ -34,7 +33,7 @@
                                    <input type="hidden" name="_token" v-bind:value="token">
 
                                    <a v-if="editar && !modal" class="btn btn-outline-primary" v-bind:href="editar">Editar</a>
-                                   <modal-link v-if="editar && modal" tipo="button" nome="editar" titulo="Editar" css=""></modal-link>
+                                   <modal-link v-if="editar && modal" tipo="button" nome="editar" titulo="Editar" css="" v-bind:item="item"></modal-link>
 
                                    <a v-if="detalhe" class="btn btn-outline-light" v-bind:href="detalhe">Detalhe</a>
 
@@ -91,8 +90,7 @@
           
           computed:{
                lista:function(){
-                    this.$store.commit('setItens', {opa: "OK"});
-     
+
                     let ordem = this.ordemAux;
                     let ordemCol = this.ordemAuxCol;
                     ordem = ordem.toLowerCase();

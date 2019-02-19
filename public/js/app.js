@@ -3022,7 +3022,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['titulos', 'itens', 'ordem', 'ordemCol', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'modal'],
   data: function data() {
@@ -3050,9 +3049,6 @@ __webpack_require__.r(__webpack_exports__);
     lista: function lista() {
       var _this = this;
 
-      this.$store.commit('setItens', {
-        opa: "OK"
-      });
       var ordem = this.ordemAux;
       var ordemCol = this.ordemAuxCol;
       ordem = ordem.toLowerCase();
@@ -3206,8 +3202,41 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['tipo', 'nome', 'titulo', 'css']
+  props: ['tipo', 'nome', 'titulo', 'css', 'item'],
+  methods: {
+    preencheFormulario: function preencheFormulario() {
+      this.$store.commit('setItem', this.item);
+    }
+  }
 });
 
 /***/ }),
@@ -38952,8 +38981,6 @@ var render = function() {
       [
         _vm._m(0),
         _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(this.$store.state.itens))]),
-        _vm._v(" "),
         _c(
           "div",
           {
@@ -39094,7 +39121,8 @@ var render = function() {
                                     tipo: "button",
                                     nome: "editar",
                                     titulo: "Editar",
-                                    css: ""
+                                    css: "",
+                                    item: item
                                   }
                                 })
                               : _vm._e(),
@@ -39400,49 +39428,117 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", {}, [
-    !_vm.tipo || (_vm.tipo != "button" && _vm.tipo != "link")
-      ? _c(
-          "button",
-          {
-            class: _vm.css || "btn btn-primary",
-            attrs: {
-              type: "button",
-              "data-toggle": "modal",
-              "data-target": "#" + _vm.nome
-            }
-          },
-          [_vm._v("\n        \t" + _vm._s(_vm.titulo) + "\n    \t")]
-        )
+    _vm.item
+      ? _c("span", [
+          !_vm.tipo || (_vm.tipo != "button" && _vm.tipo != "link")
+            ? _c(
+                "button",
+                {
+                  class: _vm.css || "btn btn-primary",
+                  attrs: {
+                    type: "button",
+                    "data-toggle": "modal",
+                    "data-target": "#" + _vm.nome
+                  },
+                  on: {
+                    click: function($event) {
+                      return _vm.preencheFormulario()
+                    }
+                  }
+                },
+                [_vm._v("\n        \t" + _vm._s(_vm.titulo) + "\n    \t")]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.tipo == "button"
+            ? _c(
+                "button",
+                {
+                  class: _vm.css || "btn btn-primary",
+                  attrs: {
+                    type: "button",
+                    "data-toggle": "modal",
+                    "data-target": "#" + _vm.nome
+                  },
+                  on: {
+                    click: function($event) {
+                      return _vm.preencheFormulario()
+                    }
+                  }
+                },
+                [_vm._v("\n        \t" + _vm._s(_vm.titulo) + "\n    \t")]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.tipo == "link"
+            ? _c(
+                "a",
+                {
+                  class: _vm.css || "",
+                  attrs: {
+                    href: "",
+                    "data-toggle": "modal",
+                    "data-target": "#" + _vm.nome
+                  },
+                  on: {
+                    click: function($event) {
+                      return _vm.preencheFormulario()
+                    }
+                  }
+                },
+                [_vm._v("\n    \t\t" + _vm._s(_vm.titulo) + "\n    \t")]
+              )
+            : _vm._e()
+        ])
       : _vm._e(),
     _vm._v(" "),
-    _vm.tipo == "button"
-      ? _c(
-          "button",
-          {
-            class: _vm.css || "btn btn-primary",
-            attrs: {
-              type: "button",
-              "data-toggle": "modal",
-              "data-target": "#" + _vm.nome
-            }
-          },
-          [_vm._v("\n        \t" + _vm._s(_vm.titulo) + "\n    \t")]
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.tipo == "link"
-      ? _c(
-          "a",
-          {
-            class: _vm.css || "",
-            attrs: {
-              href: "",
-              "data-toggle": "modal",
-              "data-target": "#" + _vm.nome
-            }
-          },
-          [_vm._v("\n    \t\t" + _vm._s(_vm.titulo) + "\n    \t")]
-        )
+    !_vm.item
+      ? _c("span", [
+          !_vm.tipo || (_vm.tipo != "button" && _vm.tipo != "link")
+            ? _c(
+                "button",
+                {
+                  class: _vm.css || "btn btn-primary",
+                  attrs: {
+                    type: "button",
+                    "data-toggle": "modal",
+                    "data-target": "#" + _vm.nome
+                  }
+                },
+                [_vm._v("\n        \t" + _vm._s(_vm.titulo) + "\n    \t")]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.tipo == "button"
+            ? _c(
+                "button",
+                {
+                  class: _vm.css || "btn btn-primary",
+                  attrs: {
+                    type: "button",
+                    "data-toggle": "modal",
+                    "data-target": "#" + _vm.nome
+                  }
+                },
+                [_vm._v("\n        \t" + _vm._s(_vm.titulo) + "\n    \t")]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.tipo == "link"
+            ? _c(
+                "a",
+                {
+                  class: _vm.css || "",
+                  attrs: {
+                    href: "",
+                    "data-toggle": "modal",
+                    "data-target": "#" + _vm.nome
+                  }
+                },
+                [_vm._v("\n    \t\t" + _vm._s(_vm.titulo) + "\n    \t")]
+              )
+            : _vm._e()
+        ])
       : _vm._e()
   ])
 }
@@ -51404,13 +51500,11 @@ Vue.use(Vuex__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 var store = new Vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store({
   state: {
-    itens: {
-      teste: "Opa funcionou"
-    }
+    item: {}
   },
   mutations: {
-    setItens: function setItens(state, obj) {
-      state.itens = obj;
+    setItem: function setItem(state, obj) {
+      state.item = obj;
     }
   }
 });
