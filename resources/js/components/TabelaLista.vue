@@ -8,7 +8,9 @@
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                          <li class="nav-item">
-                              <a v-if="criar" class="btn btn-outline-primary" v-bind:href="criar">Criar</a>
+
+                              <modal-link tipo="button" nome="meuModalTeste" titulo="criar" css=""></modal-link>
+                              
                          </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">

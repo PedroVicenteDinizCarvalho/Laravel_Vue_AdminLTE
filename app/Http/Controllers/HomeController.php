@@ -22,7 +22,10 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-        return view('home');
+    {   
+        $listaMigalhas = json_encode([
+            ["titulo"=>"Home", "url"=> ""],
+        ]);
+        return view('home', compact('listaMigalhas'));
     }
 }
