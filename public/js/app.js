@@ -3022,6 +3022,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['titulos', 'itens', 'ordem', 'ordemCol', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'modal'],
   data: function data() {
@@ -39118,24 +39167,31 @@ var render = function() {
                             _vm.editar && _vm.modal
                               ? _c("modal-link", {
                                   attrs: {
-                                    tipo: "button",
+                                    item: item,
+                                    tipo: "link",
                                     nome: "editar",
                                     titulo: "Editar",
-                                    css: "",
-                                    item: item
+                                    css: ""
                                   }
                                 })
                               : _vm._e(),
                             _vm._v(" "),
-                            _vm.detalhe
-                              ? _c(
-                                  "a",
-                                  {
-                                    staticClass: "btn btn-outline-light",
-                                    attrs: { href: _vm.detalhe }
-                                  },
-                                  [_vm._v("Detalhe")]
-                                )
+                            _vm.detalhe && !_vm.modal
+                              ? _c("a", { attrs: { href: _vm.detalhe } }, [
+                                  _vm._v("Detalhe")
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.detalhe && _vm.modal
+                              ? _c("modal-link", {
+                                  attrs: {
+                                    item: item,
+                                    tipo: "link",
+                                    nome: "detalhe",
+                                    titulo: "Detalhe",
+                                    css: ""
+                                  }
+                                })
                               : _vm._e(),
                             _vm._v(" "),
                             _c(
@@ -39162,14 +39218,17 @@ var render = function() {
                           [
                             _vm.editar && !_vm.modal
                               ? _c("a", { attrs: { href: _vm.editar } }, [
-                                  _vm._v("Editar")
+                                  _vm._v(
+                                    "Editar\n                                   "
+                                  )
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
                             _vm.editar && _vm.modal
                               ? _c("modal-link", {
                                   attrs: {
-                                    tipo: "button",
+                                    item: item,
+                                    tipo: "link",
                                     nome: "editar",
                                     titulo: "Editar",
                                     css: ""
@@ -39177,15 +39236,31 @@ var render = function() {
                                 })
                               : _vm._e(),
                             _vm._v(" "),
-                            _vm.detalhe
+                            _vm.detalhe && !_vm.modal
                               ? _c("a", { attrs: { href: _vm.detalhe } }, [
-                                  _vm._v("Detalhe")
+                                  _vm._v(
+                                    "\n                                        Detalhe\n                                   "
+                                  )
                                 ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.detalhe && _vm.modal
+                              ? _c("modal-link", {
+                                  attrs: {
+                                    item: item,
+                                    tipo: "link",
+                                    nome: "detalhe",
+                                    titulo: "Detalhe",
+                                    css: ""
+                                  }
+                                })
                               : _vm._e(),
                             _vm._v(" "),
                             _vm.deletar
                               ? _c("a", { attrs: { href: _vm.deletar } }, [
-                                  _vm._v("Deletar")
+                                  _vm._v(
+                                    "Deletar\n                                   "
+                                  )
                                 ])
                               : _vm._e()
                           ],
@@ -39199,14 +39274,17 @@ var render = function() {
                           [
                             _vm.editar && !_vm.modal
                               ? _c("a", { attrs: { href: _vm.editar } }, [
-                                  _vm._v("Editar")
+                                  _vm._v(
+                                    "Editar\n                                   "
+                                  )
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
                             _vm.editar && _vm.modal
                               ? _c("modal-link", {
                                   attrs: {
-                                    tipo: "button",
+                                    item: item,
+                                    tipo: "link",
                                     nome: "editar",
                                     titulo: "Editar",
                                     css: ""
@@ -39214,10 +39292,24 @@ var render = function() {
                                 })
                               : _vm._e(),
                             _vm._v(" "),
-                            _vm.detalhe
+                            _vm.detalhe && !_vm.modal
                               ? _c("a", { attrs: { href: _vm.detalhe } }, [
-                                  _vm._v("Detalhe")
+                                  _vm._v(
+                                    "Detalhe\n                                   "
+                                  )
                                 ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.detalhe && _vm.modal
+                              ? _c("modal-link", {
+                                  attrs: {
+                                    item: item,
+                                    tipo: "link",
+                                    nome: "detalhe",
+                                    titulo: "Detalhe",
+                                    css: ""
+                                  }
+                                })
                               : _vm._e()
                           ],
                           1

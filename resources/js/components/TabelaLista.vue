@@ -31,28 +31,77 @@
                               <form v-bind:id="index" v-if="deletar && token" v-bind:action="deletar" method="post">
                                    <input type="hidden" name="_method" value="DELETE">
                                    <input type="hidden" name="_token" v-bind:value="token">
-
+                              
+                              <!-- Button Edit -->
                                    <a v-if="editar && !modal" class="btn btn-outline-primary" v-bind:href="editar">Editar</a>
-                                   <modal-link v-if="editar && modal" tipo="button" nome="editar" titulo="Editar" css="" v-bind:item="item"></modal-link>
-
-                                   <a v-if="detalhe" class="btn btn-outline-light" v-bind:href="detalhe">Detalhe</a>
-
+                                   <modal-link 
+                                        v-if="editar && modal"
+                                        v-bind:item="item" 
+                                        tipo="link" nome="editar" titulo="Editar" css=""></modal-link>
+                              
+                              <!-- Button Detail -->
+                                   <a v-if="detalhe && !modal" v-bind:href="detalhe">Detalhe</a>
+                                   <modal-link 
+                                        v-if="detalhe && modal" 
+                                        v-bind:item="item" tipo="link" nome="detalhe" titulo="Detalhe" css=""></modal-link>
+                              
+                              <!-- Button Delete -->
                                    <a class="btn btn-outline-danger" href="#" v-on:click="executaForm(index)">Deletar</a>
                               </form>
 
                               <span v-if="!token">
-                                   <a v-if="editar && !modal" v-bind:href="editar">Editar</a>
-                                   <modal-link v-if="editar && modal" tipo="button" nome="editar" titulo="Editar" css=""></modal-link>
-
-                                   <a v-if="detalhe" v-bind:href="detalhe">Detalhe</a>
-                                   <a v-if="deletar" v-bind:href="deletar">Deletar</a>
+                              <!-- Button Edit -->
+                                   <a 
+                                        v-if="editar && !modal" 
+                                        v-bind:href="editar">Editar
+                                   </a>
+                                   <modal-link 
+                                        v-if="editar && modal"
+                                        v-bind:item="item" 
+                                        tipo="link" nome="editar" titulo="Editar" css="">
+                                   </modal-link>
+                              
+                              <!-- Button Detail -->
+                                   <a 
+                                        v-if="detalhe && !modal" 
+                                        v-bind:href="detalhe">
+                                        Detalhe
+                                   </a>
+                                   <modal-link 
+                                        v-if="detalhe && modal"
+                                        v-bind:item="item" 
+                                        tipo="link" nome="detalhe" titulo="Detalhe" css="">
+                                   </modal-link>
+                              
+                              <!-- Button Delete -->
+                                   <a 
+                                        v-if="deletar" 
+                                        v-bind:href="deletar">Deletar
+                                   </a>
                               </span>
 
                               <span v-if="token && !deletar">
-                                   <a v-if="editar && !modal" v-bind:href="editar">Editar</a>
-                                   <modal-link v-if="editar && modal" tipo="button" nome="editar" titulo="Editar" css=""></modal-link>
-
-                                   <a v-if="detalhe" v-bind:href="detalhe">Detalhe</a>
+                              <!-- Button Edit -->
+                                   <a 
+                                        v-if="editar && !modal" 
+                                        v-bind:href="editar">Editar
+                                   </a>
+                                   <modal-link 
+                                        v-if="editar && modal" 
+                                        v-bind:item="item"
+                                        tipo="link" nome="editar" titulo="Editar" css="">
+                                   </modal-link>
+                              
+                              <!-- Button Detail -->
+                                   <a 
+                                        v-if="detalhe && !modal" 
+                                        v-bind:href="detalhe">Detalhe
+                                   </a>
+                                   <modal-link 
+                                        v-if="detalhe && modal" 
+                                        v-bind:item="item" 
+                                        tipo="link" nome="detalhe" titulo="Detalhe" css="">
+                                   </modal-link>
                               </span>
           			</td>
           		</tr>
